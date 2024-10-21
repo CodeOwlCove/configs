@@ -29,4 +29,9 @@ cds() {
   builtin cd "$@"
 }
 
+# Add the Go stuff so your own packages are working 
+GOROOT=$(go env GOROOT)
+PATH=$PATH:$GOROOT/bin
 
+GOPATH=$(go env GOPATH)
+PATH=$PATH:$GOPATH/bin
