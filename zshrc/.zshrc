@@ -1,6 +1,11 @@
 # If you want to use this config on a new PC add the following command into the .zshrc file on your new machine (without the "#"):
 # source <path_to_this_file>
 
+
+# Initialize the completion system (for kubectl)
+autoload -Uz compinit && compinit
+source <(kubectl completion zsh)
+
 # Change the default colors of the terminal
 autoload -U colors && colors
 PS1="%{$fg[red]%}%n%{$reset_color%}@%{$fg[blue]%}%m %{$fg[yellow]%}%~ %{$reset_color%}%%"
@@ -15,7 +20,14 @@ export VIMINIT='source ~/gitrepos/configs/vim/.vimrc'
 ls -a
 
 alias ls="ls -G"
+alias lS="ls -a -G"
+alias lsa="ls -a -G"
+alias lsl="ls -l -G"
+alias lsal="ls -a -l -G"
+alias lsL="ls -a -l -G"
 alias clr="clear"
+alias kube="kubectl"
+
 # Created by `pipx` on 2024-10-08 10:04:19
 export PATH="$PATH:/Users/rommler/.local/bin"
 
