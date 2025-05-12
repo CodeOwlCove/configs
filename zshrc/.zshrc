@@ -1,6 +1,14 @@
 # If you want to use this config on a new PC add the following command into the .zshrc file on your new machine (without the "#"):
 # source <path_to_this_file>
 
+# Azure Devop setup
+export GONOPROXY='ssh.dev.azure.com,dev.azure.com'
+export GOPRIVATE=ssh.dev.azure.com,dev.azure.com,dev.azure.com/schwarzit
+export GOBIN=${GOBIN:-$(go env GOPATH)/bin}
+
+/usr/bin/ssh-add --apple-use-keychain ~/.ssh/id_rsa
+
+clear
 
 # Initialize the completion system (for kubectl)
 autoload -Uz compinit && compinit
@@ -27,6 +35,8 @@ alias lsal="ls -a -l -G"
 alias lsL="ls -a -l -G"
 alias clr="clear"
 alias kube="kubectl"
+alias kubeprod="export KUBECONFIG=/Users/rommler/.kube/config_prod; echo 'Kube config switched to prod...'"
+alias kubeq="export KUBECONFIG=/Users/rommler/.kube/config_qa; echo 'Kube config switched to qa...'"
 
 # Created by `pipx` on 2024-10-08 10:04:19
 export PATH="$PATH:/Users/rommler/.local/bin"
